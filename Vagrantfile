@@ -96,7 +96,9 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
    config.vm.provision "shell", inline: <<-SHELL
      apt-get update
-     apt-get install -yq apache2 make docker docker.io net-tools ansible dos2unix supervisor # linux-headers--$(uname -r) build-essential dkms
+     apt-get install -yq apache2 make docker docker.io net-tools ansible dos2unix supervisor htop # linux-headers--$(uname -r) build-essential dkms
+     apt-get clean
+     apt-get auto-clean
      file /vagrant/functions/ready | grep CRLF && dos2unix -n /vagrant/functions/ready /usr/local/bin/ready
      file /vagrant/functions/ready | grep CRLF || cp /vagrant/functions/ready /usr/local/bin/ready
      chmod 0700 /usr/local/bin/ready
@@ -105,11 +107,11 @@ Vagrant.configure("2") do |config|
      # egrep "10.55.55.2	ns1.endore.local ns1" /etc/hosts 2>/dev/null || echo "10.55.55.2	ns1.endore.local ns1" >> /etc/hosts
 
      pull_repos
-	 get_repo spicerack blueprints:galaxy3-net/spicerack.git master
-	 get_repo named named:galaxy3-net/named.git master
-     get_repo blueprints blueprints:galaxy3-net/blueprints.git master
-     get_repo quarren quarren:galaxy3-net/quarren.git master
-     #get_repo nakadia nakadia:galaxy3-net/nakadia.git master
+	 #get_repo spicerack blueprints:galaxy3-net/spicerack.git master
+	 #get_repo named named:galaxy3-net/named.git master
+     #get_repo blueprints blueprints:galaxy3-net/blueprints.git master
+     #get_repo quarren quarren:galaxy3-net/quarren.git master
+     ##get_repo nakadia nakadia:galaxy3-net/nakadia.git master
 
      tenable named
      tenable quarren
