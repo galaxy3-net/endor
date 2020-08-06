@@ -94,18 +94,9 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
    config.vm.provision "shell", inline: <<-SHELL
-     #apt-get update
-     #apt-get install -yq apache2 make docker docker.io net-tools ansible dos2unix supervisor htop # linux-headers--$(uname -r) build-essential dkms
-     #apt-get clean
-     #apt-get auto-clean
-     cp /vagrant/bin/install_pkgs /tmp/.
-     tr -d '\r' < /tmp/install_pkgs > /vagrant/bin/install_pkgs
-     /vagrant/bin/install_pkgs
-
-     file /vagrant/functions/ready | grep CRLF && dos2unix -n /vagrant/functions/ready /usr/local/bin/ready
-     file /vagrant/functions/ready | grep CRLF || cp /vagrant/functions/ready /usr/local/bin/ready
-     chmod 0700 /usr/local/bin/ready
-     ready
+     tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
+     /usr/local/bin/ready
+     /usr/local/bin/install_pkgs
 
      # egrep "10.55.55.2	ns1.endore.local ns1" /etc/hosts 2>/dev/null || echo "10.55.55.2	ns1.endore.local ns1" >> /etc/hosts
 
