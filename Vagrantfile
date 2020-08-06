@@ -72,7 +72,7 @@ Vagrant.configure("2") do |config|
   #   vb.gui = true
    
       # Customize the amount of memory on the VM:
-      vb.name = "Endor"
+      vb.name = "Endor (Core)"
       vb.memory = "1024"
       vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
       #unless File.exist?(disk)
@@ -82,7 +82,7 @@ Vagrant.configure("2") do |config|
 
       #vb.customize ['modifyvm', :id, '--nictype0', 'virtio']
       vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
-      #vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
+      vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
       #vb.customize ['modifyvm', :id, '--nictype3', 'virtio']
 
 
