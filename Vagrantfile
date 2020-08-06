@@ -80,9 +80,8 @@ Vagrant.configure("2") do |config|
       #end
       #vb.customize ['storageattach', :id, '--storagectl', 'IDE Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', disk]
 
-      #vb.customize ['modifyvm', :id, '--nictype0', 'virtio']
-      vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
-      vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
+      #vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
+      #vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
       #vb.customize ['modifyvm', :id, '--nictype3', 'virtio']
 
 
