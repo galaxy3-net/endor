@@ -54,11 +54,6 @@ Vagrant.configure("2") do |config|
   # config.vm.synced_folder "../data", "/vagrant_data"
   config.vm.synced_folder	"../../bind",	"/bind", owner: "2001", group: "2001", create: true
   config.vm.synced_folder	"../../",	"/vagrant", owner: "2001", group: "2001"
-  #config.vm.synced_folder "../../.keys", "/thedr/.ssh", owner: "2001", group: "2001", create: true, mount_options: ["uid=2001", "gid=2001"]
-  #config.vm.synced_folder "../../thedr", "/thedr/", owner: "2001", group: "2001", create: true, mount_options: ["uid=2001", "gid=2001"]
-  #config.vm.synced_folder "../../ansible", "/ansible", owner: "2001", group: "2001"
-  #config.vm.synced_folder "../../blueprints", "/blueprints", owner: "2001", group: "2001", create: true
-  #config.vm.synced_folder "../../ansible/etc/ansible/", "/etc/ansible/", owner: "2001", group: "2001"
   config.vm.synced_folder "../../repos", "/repos", owner: "2001", group: "2001", create: true
   config.vm.synced_folder "../../Downloads", "/Downloads", owner: "2001", group: "2001", create: true
 
@@ -68,21 +63,13 @@ Vagrant.configure("2") do |config|
   #
   disk = 'extra_disk.vdi'
     config.vm.provider "virtualbox" do |vb|
-      # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-   
       # Customize the amount of memory on the VM:
       vb.name = "Endor (Core)"
       vb.memory = "1024"
       vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
-      #unless File.exist?(disk)
-      #  vb.customize ['createhd', '--filename', disk, '--size', 40 * 1024]
-      #end
-      #vb.customize ['storageattach', :id, '--storagectl', 'IDE Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', disk]
-
-      #vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
-      #vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
-      #vb.customize ['modifyvm', :id, '--nictype3', 'virtio']
+      vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
+      vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
+      vb.customize ['modifyvm', :id, '--nictype3', 'virtio']
 
 
     end
@@ -97,23 +84,10 @@ Vagrant.configure("2") do |config|
      tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
      /usr/local/bin/ready
      /usr/local/bin/install_pkgs
-
-     # egrep "10.55.55.2	ns1.endore.local ns1" /etc/hosts 2>/dev/null || echo "10.55.55.2	ns1.endore.local ns1" >> /etc/hosts
-
-     pull_repos
-	 #get_repo spicerack blueprints:galaxy3-net/spicerack.git master
-	 #get_repo named named:galaxy3-net/named.git master
-     #get_repo blueprints blueprints:galaxy3-net/blueprints.git master
-     #get_repo quarren quarren:galaxy3-net/quarren.git master
-     ##get_repo nakadia nakadia:galaxy3-net/nakadia.git master
-
+     /usr/local/bin/pull_repos
      tenable named
      tenable quarren
-     #setup_named
      setup_resolver
-     #docker ps -a
-     #setup_quarren
-
 SHELL
 end
 
