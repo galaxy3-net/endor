@@ -88,5 +88,7 @@ Vagrant.configure("2") do |config|
      tenable named
      tenable quarren
      setup_resolver
+     setup_xrdp
+     setup_vnc
 SHELL
 end
