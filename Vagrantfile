@@ -83,10 +83,10 @@ Vagrant.configure("2") do |config|
    config.vm.provision "shell", inline: <<-SHELL
      tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
      /usr/local/bin/ready
-     /usr/local/bin/install_pkgs
-     /usr/local/bin/pull_repos
-     tenable named
-     tenable quarren
+     /usr/local/bin/install_pkgs | tee -a /var/log/install_pkgs.log 2>&1
+
+     /uar/local/bin/g3enable named
+     /uar/local/bin/g3enable quarren
      setup_resolver
      setup_xrdp
      #setup_vnc
