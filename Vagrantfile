@@ -56,7 +56,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder	"../../",	"/vagrant", owner: "2001", group: "2001"
   config.vm.synced_folder "../../repos", "/repos", owner: "2001", group: "2001", create: true
   config.vm.synced_folder "../../Downloads", "/Downloads", owner: "2001", group: "2001", create: true
-  config.vm.synced_folder "../../Config", "/Config", owner: "2001", group: "2001", create: true
+  config.vm.synced_folder "../../.g3", "/Config", owner: "2001", group: "2001", create: true
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
