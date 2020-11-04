@@ -32,7 +32,7 @@
 - name: Clone the NameD Service
   git:
     repo: "https://github.com/galaxy3-net/named.git"
-    dest: /srv/named
+    dest: /srv/
     separate_git_dir: /tmp/named.git
     version: master
   become: yes
