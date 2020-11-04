@@ -31,9 +31,9 @@
 
 - name: Clone the NameD Service
   git:
-    repo: https://github.com/galaxy3-net/named.git
+    repo: "https://github.com/galaxy3-net/named.git"
     dest: /srv/named
-    separate_git_dir: /srv/named.git
+    separate_git_dir: /tmp/named.git
     version: master
   become: yes
   become_user: thedr
