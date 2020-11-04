@@ -52,7 +52,7 @@
     dest: /usr/sbin/named
     mode: 0777
     remote_src: no
-  delegate_to: localhost
+  delegate_to: "{{ inventory_hostname }}"
   become: yes
 
 - name: Start NameD Service
