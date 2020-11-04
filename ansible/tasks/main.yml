@@ -11,10 +11,11 @@
 
 # Create the Services Directory
 - name: Create the Services Directory
-  file: "/srv"
+  file:
+    path:  "/srv"
     owner: "2001"
     group: "2001"
-    mode: "0777"
+    mode:
     state: directory
 
 - name: Clone the NameD Service
