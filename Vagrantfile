@@ -84,7 +84,7 @@ Vagrant.configure("2") do |config|
    config.vm.provision "shell", inline: <<-SHELL
      tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
      /usr/local/bin/ready
-     /usr/local/bin/install_pkgs | tee -a /var/log/install_pkgs.log 2>&1
+     # /usr/local/bin/install_pkgs | tee -a /var/log/install_pkgs.log 2>&1
 
      /usr/local/bin/g3enable named
      /usr/local/bin/g3enable quarren
