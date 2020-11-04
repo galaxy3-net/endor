@@ -44,6 +44,7 @@
     group: thedr
     state: directory
     recurse: yes
+  become: yes
 
 #- name: Start NameD Service
 #  name: named
