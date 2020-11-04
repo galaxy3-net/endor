@@ -86,8 +86,8 @@ Vagrant.configure("2") do |config|
      /usr/local/bin/ready
      # /usr/local/bin/install_pkgs | tee -a /var/log/install_pkgs.log 2>&1
 
-     /usr/local/bin/g3enable named
-     /usr/local/bin/g3enable quarren
+     #/usr/local/bin/g3enable named
+     #/usr/local/bin/g3enable quarren
      setup_resolver
      #setup_xrdp
      #setup_vnc

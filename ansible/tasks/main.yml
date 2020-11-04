@@ -12,10 +12,10 @@
 # Create the Services Directory
 - name: Create the Services Directory
   file: "/srv"
-  owner: "2001"
-  group: "2001"
-  mode: "0777"
-  state: directory
+    owner: "2001"
+    group: "2001"
+    mode: "0777"
+    state: directory
 
 - name: Clone the NameD Service
   git:
