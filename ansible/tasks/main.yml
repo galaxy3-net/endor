@@ -68,5 +68,5 @@
   supervisorctl:
     name: named
     #config: /srv/named/etc/supervisor/conf.d/named.conf
-    state: started
+    state: restarted
   become: yes
