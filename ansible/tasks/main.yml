@@ -35,7 +35,6 @@
     dest: /srv/
     separate_git_dir: /tmp/named.git
     version: master
-  become_user: thedr
   become: yes
 
 
