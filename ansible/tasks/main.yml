@@ -33,7 +33,7 @@
   git:
     repo: "https://github.com/galaxy3-net/named.git"
     dest: /srv/
-    separate_git_dir: /tmp/named.git
+    # separate_git_dir: /tmp/named.git
     version: master
   become: yes
 
