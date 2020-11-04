@@ -33,6 +33,7 @@
   git:
     repo: https://github.com/galaxy3-net/named.git
     dest: /srv/named
+    separate_git_dir: /srv/named
     version: master
   become: yes
   become_user: thedr
