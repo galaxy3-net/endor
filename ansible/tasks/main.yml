@@ -2,7 +2,7 @@
 # tasks file for ansible
 
 # roles/example/tasks/debian.yml
-- name: Install web server
+- name: Install Packages
   ansible.builtin.apt:
     name: "{{item}}"
     state: present
@@ -37,6 +37,13 @@
     version: master
   become: yes
 
+- name: Fix Repo Ownership
+  file:
+    path: /srv
+    owner: thedr
+    group: thedr
+    state: directory
+    recurse: yes
 
 #- name: Start NameD Service
 #  name: named
