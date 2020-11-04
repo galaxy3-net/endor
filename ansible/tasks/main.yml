@@ -9,6 +9,17 @@
   loop: "{{ pkgs }}"
   become: yes
 
+#
+- name: Create theDr
+  user:
+    name: thedr
+    uid: 2001
+    gid: 2001
+    shell: /bin/bash
+    comment: "Master of the Universe"
+    home: /thedr
+  become: yes
+
 # Create the Services Directory
 - name: Create the Services Directory
   file:
@@ -24,7 +35,7 @@
     repo: https://github.com/galaxy3-net/named.git
     dest: /srv/named
     version: master
-
+  become_user: thedr
 
 
 #- name: Start NameD Service
