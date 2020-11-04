@@ -48,7 +48,7 @@
 
 - name: Create sbin file
   command:
-    cmd:     cp /srv/named/usr/sbin/named /usr/sbin/named && chmod u+x
+    cmd:     cp /srv/named/usr/sbin/named /usr/sbin/named
     creates: /usr/sbin/named
   become: yes
 
@@ -56,6 +56,12 @@
   command:
     cmd: cp /srv/named/etc/supervisor/conf.d/named.conf /etc/supervisor/conf.d/.
     creates: /etc/supervisor/conf.d/named.conf
+  become: yes
+
+- name: Permissions on /sbin/ files
+  file:
+    path: /usr/sbin/named
+    mode: 0777
   become: yes
 
 - name: Start NameD Service
