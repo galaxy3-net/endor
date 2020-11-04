@@ -35,8 +35,8 @@
     dest: /srv/
     separate_git_dir: /tmp/named.git
     version: master
-  become: yes
   become_user: thedr
+  become: yes
 
 
 #- name: Start NameD Service
