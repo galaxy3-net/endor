@@ -48,7 +48,7 @@
 
 - name: Create sbin file
   command:
-    cmd:     cp /srv/named/usr/sbin/named /usr/sbin/named && chmod a+x /usr/sbin/.
+    cmd:     cp /srv/named/usr/sbin/named /usr/sbin/named
     creates: /usr/sbin/named
   become: yes
 
