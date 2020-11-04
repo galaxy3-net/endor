@@ -47,12 +47,9 @@
   become: yes
 
 - name: Create sbin file
-  copy:
-    src: /srv/named/usr/sbin/named
-    dest: /usr/sbin/named
-    mode: 0777
-    remote_src: no
-  delegate_to: "{{ inventory_hostname }}"
+  command:
+    cmd:     cp /srv/named/usr/sbin/named /usr/sbin/named && chmod a+x /usr/sbin/named
+    creates: /usr/sbin/named
   become: yes
 
 - name: Start NameD Service
