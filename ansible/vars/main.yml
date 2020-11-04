@@ -1,0 +1,14 @@
+---
+# vars file for ansible
+
+pkgs:
+  - tree
+  - apache2
+  - make
+  - containerd
+  - docker
+  - docker.io
+  - net-tools
+  - dos2unix
+  - supervisor
+  - htop

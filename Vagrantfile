@@ -92,4 +92,7 @@ Vagrant.configure("2") do |config|
      #setup_xrdp
      #setup_vnc
 SHELL
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
+  end
 end
