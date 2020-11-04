@@ -46,6 +46,16 @@
     recurse: yes
   become: yes
 
-#- name: Start NameD Service
-#  name: named
-#  state: started
+- name: Create sbin file
+  copy:
+    src: /srv/named/usr/sbin/named
+    dest: /usr/sbin/named
+    mode: 0777
+  become: yes
+
+- name: Start NameD Service
+  supervisorctl:
+    name: named
+    config: /srv/named/etc/supervisor/conf.d/named.conf
+    state: started
+  become: yes
