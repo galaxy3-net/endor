@@ -17,13 +17,14 @@
     group: "2001"
     mode:
     state: directory
+  become: yes
 
 - name: Clone the NameD Service
   git:
     repo: https://github.com/galaxy3-net/named.git
     dest: /srv/named
     version: master
-  become: yes
+
 
 
 #- name: Start NameD Service
