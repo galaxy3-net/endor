@@ -14,7 +14,6 @@
   user:
     name: thedr
     uid: 2001
-    gid: 2001
     shell: /bin/bash
     comment: "Master of the Universe"
     home: /thedr
@@ -24,8 +23,8 @@
 - name: Create the Services Directory
   file:
     path:  "/srv"
-    owner: "2001"
-    group: "2001"
+    owner: thedr
+    group: thedr
     mode:
     state: directory
   become: yes
