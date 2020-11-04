@@ -51,6 +51,7 @@
     src: /srv/named/usr/sbin/named
     dest: /usr/sbin/named
     mode: 0777
+    remote_src: no
   delegate_to: localhost
   become: yes
 
