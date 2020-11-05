@@ -75,14 +75,14 @@
   lineinfile:
     path: /etc/resolv.conf
     line: '{{ item.line }}'
-    state: '{{ item.state | default("present") }}'
+    state: '{{ item.state }}'
     backup: true
   loop:
-    - { state: 'absent', line: '^options edns0' }
-    - { state: 'absent', line: '^search attlocal.net' }
-    - { line: "nameserver 10.55.55.2" }
-    - { line: "nameserver 8.8.8.8" }
-    - { line: "options edns0" }
-    - { line: "nameserver 8.8.8.8" }
-    - { line: 'search moddell.galaxy3.net attlocal.net, empire.local' }
+    - { state: 'absent', line: 'options edns0' }
+    - { state: 'absent', line: 'search attlocal.net' }
+    - { state: "present", line: "nameserver 10.55.55.2" }
+    - { state: "present",  line: "nameserver 8.8.8.8" }
+    - { state: "present",  line: "options edns0" }
+    - { state: "present",  line: "nameserver 8.8.8.8" }
+    - { state: "present",  line: 'search moddell.galaxy3.net attlocal.net, empire.local' }
   become: yes
