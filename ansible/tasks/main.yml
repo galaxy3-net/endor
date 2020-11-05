@@ -82,6 +82,7 @@
     path: /etc/resolv.conf
     line: '{{ item.line }}'
     state: '{{ item.state }}'
+    create: yes
     backup: true
   loop:
     - { state: 'absent', line: 'options edns0' }
