@@ -85,3 +85,4 @@
     - { line: "options edns0" }
     - { line: "nameserver 8.8.8.8" }
     - { line: 'search moddell.galaxy3.net attlocal.net, empire.local' }
+  become: yes
