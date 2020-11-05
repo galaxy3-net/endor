@@ -70,3 +70,18 @@
     #config: /srv/named/etc/supervisor/conf.d/named.conf
     state: restarted
   become: yes
+
+- name: Update Resolver /etc/resolv.conf
+  lineinfile:
+    path: /etc/resolv.conf
+    line: '{{ item.line }}'
+    state: '{{ item.state | default("present") }}'
+    backup: true
+  loop:
+    - { state: 'absent', line: '^options edns0' }
+    - { state: 'absent', line: '^search attlocal.net' }
+    - { line: "nameserver 10.55.55.2" }
+    - { line: "nameserver 8.8.8.8" }
+    - { line: "options edns0" }
+    - { line: "nameserver 8.8.8.8" }
+    - { line: 'search moddell.galaxy3.net attlocal.net, empire.local' }
