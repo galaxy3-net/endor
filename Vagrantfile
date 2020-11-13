@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |vb|
       # Customize the amount of memory on the VM:
       vb.name = "Endor (Core)"
-      vb.gui = false
+      # vb.gui = false
       vb.memory = "1024"
       vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
       vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
@@ -34,13 +34,6 @@ Vagrant.configure("2") do |config|
      /usr/local/bin/ready
      apt-get install -y ansible
      ansible-galaxy install -r requirements.yml
-     # /usr/local/bin/install_pkgs | tee -a /var/log/install_pkgs.log 2>&1
-
-     #/usr/local/bin/g3enable named
-     #/usr/local/bin/g3enable quarren
-     #setup_resolver
-     #setup_xrdp
-     #setup_vnc
 SHELL
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"

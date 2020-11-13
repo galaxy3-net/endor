@@ -1,4 +1,3 @@
 # Install a role from a specific git branch
 - name: packages
   src: https://github.com/galaxy3-net/pkgs
-  version: origin/master
