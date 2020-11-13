@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "generic/ubuntu2004"
   config.vm.hostname = "endor"
-  config.vm.provision "file", source: "./requirements.yml", destination: "requirements.yml"
+  #config.vm.provision "file", source: "./requirements.yml", destination: "requirements.yml"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
