@@ -87,6 +87,7 @@ Vagrant.configure("2") do |config|
      tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
      /usr/local/bin/ready
      apt-get install -y ansible
+     ansible-galaxy install -r requirements.yml
      # /usr/local/bin/install_pkgs | tee -a /var/log/install_pkgs.log 2>&1
 
      #/usr/local/bin/g3enable named
