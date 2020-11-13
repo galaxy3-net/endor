@@ -32,12 +32,11 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
      tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
      /usr/local/bin/ready
-     #apt-get install -y ansible
-     #ansible-galaxy install -r requirements.yml
+     apt-get install -y ansible
+     ansible-galaxy install -r requirements.yml
 SHELL
-  config.vm.provision "ansible" do |ansible|
+  config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "playbook.yml"
-    ansible.install_mode = "pip"
 
   end
 end
