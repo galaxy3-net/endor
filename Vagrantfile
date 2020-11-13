@@ -38,7 +38,7 @@ Vagrant.configure("2") do |config|
      ansible-galaxy install -r requirements.yml
 SHELL
   config.vm.provision "ansible_local" do |ansible|
-    ansible.playbook = "~/playbook.yml"
+    ansible.playbook = "./playbook.yml"
 
   end
 end
