@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 80, host: 80, auto_correct: true
   config.vm.network "private_network", ip: "10.55.55.3"
   config.vm.synced_folder	"../../bind",	"/bind", owner: "2001", group: "2001", create: true
-  config.vm.synced_folder	"../../",	"/vagrant", owner: "2001", group: "2001"
+  #config.vm.synced_folder	"../../",	"/vagrant", owner: "2001", group: "2001"
   config.vm.synced_folder "../../repos", "/repos", owner: "2001", group: "2001", create: true
   config.vm.synced_folder "../../Downloads", "/Downloads", owner: "2001", group: "2001", create: true
   config.vm.synced_folder "../../.g3", "/Config", owner: "2001", group: "2001", create: true
