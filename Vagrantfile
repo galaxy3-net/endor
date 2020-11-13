@@ -14,6 +14,8 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "../../Downloads", "/Downloads", owner: "2001", group: "2001", create: true
   config.vm.synced_folder "../../.g3", "/Config", owner: "2001", group: "2001", create: true
   config.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
+  config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
+  config.vm.provision "file", source: "endor-role/", destination: "endor-role/"
 
   disk = 'extra_disk.vdi'
     config.vm.provider "virtualbox" do |vb|
