@@ -76,7 +76,7 @@ Vagrant.configure("2") do |config|
       vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
       vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
       vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
-    end
+  end
   #
   # View the documentation for the provider you are using for more
   # information on available options.
@@ -85,7 +85,7 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
-   config.vm.provision "shell", inline: <<-SHELL
+  config.vm.provision "shell", inline: <<-SHELL
      tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
      /usr/local/bin/ready
      apt-get install -y ansible
