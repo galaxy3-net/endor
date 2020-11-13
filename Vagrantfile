@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
      ansible-galaxy install -r requirements.yml
 SHELL
   config.vm.provision "ansible_local" do |ansible|
-    ansible.playbook = "/vagrant/vagrant/naboo/playbook.yml"
-    ansible.galaxy_role_file = "/vagrant/vagrant/naboo/requirements.yml"
+    ansible.playbook = "/home/vagrant/playbook.yml"
+    ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
   end
 end
