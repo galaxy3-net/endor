@@ -67,6 +67,7 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |vb|
       # Customize the amount of memory on the VM:
       vb.name = "Endor (Core)"
+      vb.gui = true
       vb.memory = "1024"
       vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
       vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
