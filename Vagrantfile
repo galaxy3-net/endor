@@ -31,9 +31,9 @@ Vagrant.configure("2") do |config|
   # via 127.0.0.1 to disable public access
   # config.vm.network "forwarded_port", guest: 80, host: 55031, host_ip: "127.0.0.1",  auto_correct: true
   #config.vm.network "forwarded_port", guest: 22, host: 55031, host_ip: "127.0.0.1", auto_correct: true
-  config.vm.network "forwarded_port", guest: 5901, host: 55032, host_ip: "127.0.0.1", auto_correct: true
-  config.vm.network "forwarded_port", guest: 5902, host: 55033, host_ip: "127.0.0.1",  auto_correct: true
-  config.vm.network "forwarded_port", guest: 3389, host: 55034, host_ip: "127.0.0.1",  auto_correct: true
+  #config.vm.network "forwarded_port", guest: 5901, host: 55032, host_ip: "127.0.0.1", auto_correct: true
+  #config.vm.network "forwarded_port", guest: 5902, host: 55033, host_ip: "127.0.0.1",  auto_correct: true
+  config.vm.network "forwarded_port", guest: 3389, host: 55034,  auto_correct: true
   config.vm.network "forwarded_port", guest: 8000, host: 58000,  auto_correct: true
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
