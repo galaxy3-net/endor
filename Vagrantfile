@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
   config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
   config.vm.provision "file", source: "endor-role/", destination: "endor-role/"
-  config.vm.provision "file", source: "../../functions", destination: "/usr/local/bin"
+  config.vm.provision "file", source: "../../functions", destination: "functions"
 
   disk = 'extra_disk.vdi'
     config.vm.provider "virtualbox" do |vb|
