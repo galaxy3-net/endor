@@ -1,3 +1,7 @@
 # Install a role from a specific git branch
 - name: packages
   src: https://github.com/galaxy3-net/pkgs
+
+- name: named
+  src: https://github.com/galaxy3-net/ansible_named
+  version: "origin/named"

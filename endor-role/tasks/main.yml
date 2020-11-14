@@ -29,47 +29,6 @@
     state: directory
   become: yes
 
-- name: Clone the NameD Service
-  git:
-    repo: "https://github.com/galaxy3-net/named.git"
-    dest: /srv/named
-    separate_git_dir: /srv/named.git
-    version: master
-  become: yes
-
-- name: Fix Repo Ownership
-  file:
-    path: /srv
-    owner: thedr
-    group: thedr
-    state: directory
-    recurse: yes
-  become: yes
-
-- name: Create sbin file
-  command:
-    cmd:     cp /srv/named/usr/sbin/named /usr/sbin/named
-    creates: /usr/sbin/named
-  become: yes
-
-- name: Copy Service Config File
-  command:
-    cmd: cp /srv/named/etc/supervisor/conf.d/named.conf /etc/supervisor/conf.d/.
-    creates: /etc/supervisor/conf.d/named.conf
-  become: yes
-
-- name: Permissions on /sbin/ files
-  file:
-    path: /usr/sbin/named
-    mode: 0777
-  become: yes
-
-- name: Start NameD Service
-  supervisorctl:
-    name: named
-    #config: /srv/named/etc/supervisor/conf.d/named.conf
-    state: restarted
-  become: yes
 
 - name: Remove resolv.conf
   file:
