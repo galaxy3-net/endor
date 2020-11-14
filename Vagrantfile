@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
   config.vm.provision "file", source: "endor-role/", destination: "endor-role/"
   config.vm.provision "file", source: "../../functions", destination: "functions/bin"
-  config.vm.provision "file", source: "hosts", destination: "/etc/ansible/hosts"
+  config.vm.provision "file", source: "hosts", destination: "hosts"
 
   disk = 'extra_disk.vdi'
     config.vm.provider "virtualbox" do |vb|
@@ -38,6 +38,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "/home/vagrant/playbook.yml"
     ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
+    inventory_path = "/home/vagrant/hosts"
   end
 end
 #  https://www.vagrantup.com/docs/provisioning/ansible_local.html
