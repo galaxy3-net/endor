@@ -2,12 +2,12 @@
 # tasks file for ansible
 
 # roles/example/tasks/debian.yml
-- name: Install Packages
-  ansible.builtin.apt:
-    name: "{{item}}"
-    state: present
-  loop: "{{ pkgs }}"
-  become: yes
+#- name: Install Packages
+#  ansible.builtin.apt:
+#    name: "{{item}}"
+#    state: present
+#  loop: "{{ pkgs }}"
+#  become: yes
 
 #
 - name: Create theDr
