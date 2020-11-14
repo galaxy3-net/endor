@@ -19,6 +19,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "playbook.yml", destination: "playbook.yml"
   config.vm.provision "file", source: "endor-role/", destination: "endor-role/"
   config.vm.provision "file", source: "../../functions", destination: "functions/bin"
+  config.vm.provision "file", source: "hosts", destination: "/etc/ansible/hosts"
 
   disk = 'extra_disk.vdi'
     config.vm.provider "virtualbox" do |vb|
@@ -34,14 +35,9 @@ Vagrant.configure("2") do |config|
       vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
   end
 
-#  config.vm.provision "shell", inline: <<-SHELL
-     #tr -d '\r' < /vagrant/functions/ready >/usr/local/bin/ready && chmod 0700 /usr/local/bin/ready
-     #/usr/local/bin/ready
-     #apt-get install -y ansible
-     #ansible-galaxy install -r requirements.yml
-#SHELL
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "/home/vagrant/playbook.yml"
     ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
   end
 end
+#  https://www.vagrantup.com/docs/provisioning/ansible_local.html
