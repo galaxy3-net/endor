@@ -7,7 +7,10 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 3389, host: 3389,  auto_correct: true
   config.vm.network "forwarded_port", guest: 8000, host: 8000,  auto_correct: true
   config.vm.network "forwarded_port", guest: 80, host: 80, auto_correct: true
-  config.vm.network "private_network", ip: "10.55.55.3"
+
+  config.vm.network "private_network", ip: "10.55.55.3",
+  	virtualbox__intnet: "g3main"
+
   config.vm.synced_folder	"../../bind",	"/bind", owner: "2001", group: "2001", create: true
   #config.vm.synced_folder	"../../",	"/vagrant", owner: "2001", group: "2001"
   config.vm.synced_folder	"./",	"/vagrant", owner: "2001", group: "2001"
@@ -28,12 +31,12 @@ Vagrant.configure("2") do |config|
       vb.name = "Endor (Core)"
       # vb.gui = false
       vb.memory = "1024"
-      vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
-      vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
-      vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
-      vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
-      vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
-      vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
+#      vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+#      vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
+#      vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
+#      vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
+#      vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
+ #     vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
   end
    config.vm.provision "shell", inline: <<-SHELL
 	apt-get install -y ansible python3
