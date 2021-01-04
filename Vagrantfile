@@ -1,6 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+VAGRANT_EXPERIMENTAL="disks"
+
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/ubuntu2004"
   config.vm.hostname = "endor"
@@ -10,6 +12,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.network "private_network", ip: "10.55.55.3",
   	virtualbox__intnet: "g3main"
+
+  config.vm.disk :disk, size: "50GB", primry: true
 
   config.vm.synced_folder	"../../bind",	"/bind", owner: "2001", group: "2001", create: true
   #config.vm.synced_folder	"../../",	"/vagrant", owner: "2001", group: "2001"
