@@ -1,7 +1,7 @@
 ---
 # vars file for ansible
 
-pkgs:
+apt_pkgs:
   - tree
   - apache2
   - make
@@ -12,3 +12,4 @@ pkgs:
   - dos2unix
   - supervisor
   - htop
+  - isc-dhcp-server

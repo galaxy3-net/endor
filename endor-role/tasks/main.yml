@@ -9,6 +9,18 @@
 #  loop: "{{ pkgs }}"
 #  become: yes
 
+- name: Install Packages
+  ansible.builtin.apt:
+    name: "{{item}}"
+    state: present
+    autoclean: yes
+    autoremove: yes
+    force_apt_get: yes
+    install_recommends: yes
+    update_cache: yes
+  loop: "{{ apt_pkgs }}"
+  become: yes
+
 #
 - name: Create theDr
   user:
