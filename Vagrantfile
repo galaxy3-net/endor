@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
       vb.name = "Endor (Core)"
       # vb.gui = false
       vb.memory = "1024"
-      v.customize ["modifyvm", :id, "--description", "50"]
+      vb.customize ["modifyvm", :id, "--description", "50"]
 #      vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
 #      vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
 #      vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
