@@ -1,9 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-VAGRANT_EXPERIMENTAL="disks"
-
-DESCRIPTION = "endor-role/files/description"
 
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/ubuntu2004"
@@ -14,6 +11,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.network "private_network", ip: "10.55.55.3",
   	virtualbox__intnet: "g3main"
+
+  DESCRIPTION = "endor-role/files/description"
 
   config.vm.disk :disk, size: "50GB", primry: true
 
