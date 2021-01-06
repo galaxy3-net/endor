@@ -48,10 +48,10 @@ Vagrant.configure("2") do |config|
 #      vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
 #      vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
  #     vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
-  end
-   config.vm.provision "shell", inline: <<-SHELL
-	apt-get install -y ansible python3
-SHELL
+#  end
+#   config.vm.provision "shell", inline: <<-SHELL
+#	apt-get install -y ansible python3
+#SHELL
 
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "/home/vagrant/playbook.yml"
