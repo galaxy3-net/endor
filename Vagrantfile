@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
   disk = 'extra_disk.vdi'
     config.vm.provider "virtualbox" do |vb|
       # Customize the amount of memory on the VM:
-      vb.name = "Endor (Core)"
+      vb.name = ENV['boxname']
       # vb.gui = false
       vb.memory = "1024"
 #      vb.customize ["modifyvm", :id, "--description", File.read(DESCRIPTION)]
