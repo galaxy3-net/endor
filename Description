@@ -1,0 +1,9 @@
+Endor (Corebox)
+
+VM that contains many of the core functions to support the Galaxy3 environment.
+
+Functions:
+    o DNS / Named
+
+Users:
+    o vagrant / vagrant

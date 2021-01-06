@@ -12,7 +12,10 @@ Vagrant.configure("2") do |config|
   config.vm.network "private_network", ip: "10.55.55.3",
   	virtualbox__intnet: "g3main"
 
-  DESCRIPTION = "endor-role/files/description"
+  config.trigger.after :up do |trigger|
+    trigger.name = "Complete Setup"
+  	trigger.info = File.read("Description")
+  end
 
   config.vm.disk :disk, size: "50GB", primry: true
 
@@ -38,7 +41,7 @@ Vagrant.configure("2") do |config|
       vb.name = ENV['boxname']
       # vb.gui = false
       vb.memory = "1024"
-#      vb.customize ["modifyvm", :id, "--description", File.read(DESCRIPTION)]
+      vb.customize ["modifyvm", :id, "--description", File.read("Description")]
 #      vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
 #      vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
 #      vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
