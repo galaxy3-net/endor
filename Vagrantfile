@@ -48,5 +48,3 @@ Vagrant.configure("2") do |config|
     inventory_path = "/home/vagrant/hosts"
   end
 end
-
-#  https://www.vagrantup.com/docs/provisioning/ansible_local.html
