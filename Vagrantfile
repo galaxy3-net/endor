@@ -36,12 +36,13 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "requirements.yml", destination: "requirements.yml"
 
   disk = 'extra_disk.vdi'
-    config.vm.provider "virtualbox" do |vb|
+  config.vm.provider "virtualbox" do |vb|
       # Customize the amount of memory on the VM:
       vb.name = ENV['boxname']
       # vb.gui = false
       vb.memory = "1024"
       vb.customize ["modifyvm", :id, "--description", File.read("Description")]
+  end
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "/home/vagrant/playbook.yml"
     ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
