@@ -42,21 +42,11 @@ Vagrant.configure("2") do |config|
       # vb.gui = false
       vb.memory = "1024"
       vb.customize ["modifyvm", :id, "--description", File.read("Description")]
-#      vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
-#      vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
-#      vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
-#      vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
-#      vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
- #     vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
-#  end
-#   config.vm.provision "shell", inline: <<-SHELL
-#	apt-get install -y ansible python3
-#SHELL
-
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "/home/vagrant/playbook.yml"
     ansible.galaxy_role_file = "/home/vagrant/requirements.yml"
     inventory_path = "/home/vagrant/hosts"
   end
 end
+
 #  https://www.vagrantup.com/docs/provisioning/ansible_local.html
